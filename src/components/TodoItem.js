@@ -25,9 +25,9 @@ export default class TodoItem extends Component {
     return(
       <li className={classnames({completed: this.props.completed, editing: this.state.editing})} key={this.props.id}>
         <div className="view">
-          <input className="toggle" type="checkbox" checked={this.props.completed} onClick={this.props.toggleComplete.bind(this, this.props.id)} />
+          <input className="toggle" type="checkbox" checked={this.props.completed} onChange={this.props.toggleComplete.bind(this, this.props.id)} />
           <label onDoubleClick={this.handleDoubleClick.bind(this)}>{this.props.text}</label>
-          <button class="destroy" onClick={this.props.deleteTodo.bind(this, this.props.id)}></button>
+          <button className="destroy" onClick={this.props.deleteTodo.bind(this, this.props.id)}></button>
         </div>
         <InputTodo text={this.props.text} onSave={this.handleEdit.bind(this)} editing={true} />
 

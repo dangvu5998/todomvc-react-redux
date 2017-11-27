@@ -19,19 +19,19 @@ export default class SectionMain extends Component {
     let {todos, actions, visibilityFilter} = this.props
     return (
       <footer className="footer">
-        <span class="todo-count"><strong>{todos.reduce((num, todo) => num += todo.completed? 0:1, 0)}</strong> item left</span>
-        <ul class="filters">
+        <span className="todo-count"><strong>{todos.reduce((num, todo) => num += todo.completed? 0:1, 0)}</strong> item left</span>
+        <ul className="filters">
 					<li>
-						<a href="#" className={(classnames({"selected": visibilityFilter === visibilityFilters.ALL}))} onClick={actions.setVisibilityFilter.bind(this, visibilityFilters.ALL)}>All</a>
+						<a style={{cursor: "Pointer"}} className={(classnames({"selected": visibilityFilter === visibilityFilters.ALL}))} onClick={actions.setVisibilityFilter.bind(this, visibilityFilters.ALL)}>All</a>
 					</li>
 					<li>
-						<a className={(classnames({"selected": visibilityFilter === visibilityFilters.UNCOMPLETED}))} onClick={actions.setVisibilityFilter.bind(this, visibilityFilters.UNCOMPLETED)} href="#">Active</a>
+						<a  style={{cursor: "Pointer"}} className={(classnames({"selected": visibilityFilter === visibilityFilters.UNCOMPLETED}))} onClick={actions.setVisibilityFilter.bind(this, visibilityFilters.UNCOMPLETED)}>Active</a>
 					</li>
 					<li>
-						<a href="#" className={(classnames({"selected": visibilityFilter === visibilityFilters.COMPLETED}))} onClick={actions.setVisibilityFilter.bind(this, visibilityFilters.COMPLETED)}>Completed</a>
+						<a style={{cursor: "Pointer"}} className={(classnames({"selected": visibilityFilter === visibilityFilters.COMPLETED}))} onClick={actions.setVisibilityFilter.bind(this, visibilityFilters.COMPLETED)}>Completed</a>
 					</li>
 				</ul>
-        <button class="clear-completed" onClick={actions.deleteCompleted.bind(this)}>Clear completed</button>
+        <button className="clear-completed" onClick={actions.deleteCompleted.bind(this)}>Clear completed</button>
       </footer>
     )
   }

@@ -4,7 +4,6 @@ export default function todos(state = [], action) {
   switch(action.type) {
     case types.DELETE_TODO: 
     return state.filter(todo => todo.id !== action.id)
-    break
 
     case types.ADD_TODO:
     return [
@@ -15,7 +14,6 @@ export default function todos(state = [], action) {
         completed: false
       }
     ]
-    break
 
     case types.TOGGLE_COMPLETE:
     return state.map(todo => {
@@ -23,19 +21,15 @@ export default function todos(state = [], action) {
       return Object.assign({}, todo, {completed: !todo.completed})
       else return todo
     })
-    break
 
     case types.DELETE_COMPLETED:
     return state.filter(todo => !todo.completed)
-    break
 
     case types.EDIT_TODO:
     return state.map(todo => todo.id !== action.id? todo: Object.assign({}, todo, {text: action.text}))
-    break
 
     case types.COMPLETE_ALL:
     return state.map(todo => Object.assign({}, todo, {completed: true}))
-    break
     case types.UN_COMPLETE_ALL:
     return state.map(todo => Object.assign({}, todo, {completed: false} ))
 
